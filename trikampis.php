@@ -37,6 +37,7 @@ class Trikampis {
         $this->perimetras();
         $this->pusPerimetras();
         $this->plotas();
+        
     }
     
         function perimetras() {
@@ -55,6 +56,7 @@ class Trikampis {
             echo "plotas: ".$this->rezultatas;
             echo "<br>";
         }
+       
 }    
 
 if(isset($_GET["trikampis"])) {

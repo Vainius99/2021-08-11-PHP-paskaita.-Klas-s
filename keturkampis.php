@@ -1,4 +1,28 @@
-<?php
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<form action="keturkampis.php" action="get">
+    <input type="text" name="a" value="5" />
+    <input type="text" name="b" value="4" />  
+    <button type="submit" name="keturkampis">SUBMIT</button>
+</form>
+
+<!-- 3. Susikurti klasę "Keturkampis". Pagal klasę sukurti objektą.
+Objektas turi priimti du kintamuosius: a ir b kraštines.
+Sukurti metodus, kurie skaičiuoja kvadrato plotą, perimetrą, įstrižainės ilgį.
+Informaciją išvesti į <p> žymę.
+
+Papildoma: nubraižyti kvadratą(pikseliais) pagal a ir b kraštines. Kvadrato nubraižymas turi būti objekto metodas. -->
+
+<?php 
+
 class Keturkampis {
     public $a;
     public $b;
@@ -10,6 +34,7 @@ class Keturkampis {
         $this->plotis();
         $this->perimetras();
         $this->istrizaine();
+        $this->braizymas();
     }
 
     function plotis(){
@@ -30,48 +55,12 @@ class Keturkampis {
         echo "<br>";
 
     }
-    // function vaizdavimas(){
-        
-    // }
-}
-?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-<style>
-
-    .nubrezk {
-        background-color: brown;
-        height:<?php $a."px"; ?>;
-        width:<?php $b."px"; ?>;
+    function braizymas() {
+        echo "<div class='braizymas' ";
+        echo "style='height:" . $this->b . "px; width:" . $this->a . "px;";
+        echo "background:brown' ></div>";
     }
-
-</style>
-
-</head>
-<body>
-
-<form action="keturkampis.php" action="get">
-    <input type="text" name="a" value="5" />
-    <input type="text" name="b" value="4" />  
-    <button type="submit" name="keturkampis">SUBMIT</button>
-</form>
-
-<div class="nubrezk"></div>
-
-<!-- 3. Susikurti klasę "Keturkampis". Pagal klasę sukurti objektą.
-Objektas turi priimti du kintamuosius: a ir b kraštines.
-Sukurti metodus, kurie skaičiuoja kvadrato plotą, perimetrą, įstrižainės ilgį.
-Informaciją išvesti į <p> žymę.
-
-Papildoma: nubraižyti kvadratą(pikseliais) pagal a ir b kraštines. Kvadrato nubraižymas turi būti objekto metodas. -->
-
-<?php 
+}    
 
 if(isset($_GET["keturkampis"])) {
     if(isset($_GET["a"]) && !empty($_GET["a"]) && isset($_GET["b"]) && !empty($_GET["b"])) {
